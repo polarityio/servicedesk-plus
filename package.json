@@ -1,0 +1,17 @@
+{
+  "main": "./integration.js",
+  "name": "servicedesk-plus",
+  "version": "1.0.0-beta",
+  "private": true,
+  "dependencies": {
+    "pg": "^7.1"
+  },
+  "devDependencies": {
+    "chai": "~4.1",
+    "mocha": "~3.4",
+    "nock": "~9.0"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --recursive"
+  }
+}
