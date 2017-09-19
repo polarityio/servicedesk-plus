@@ -17,7 +17,7 @@ For this integration to work you must be running ManageEngine ServiceDesk Plus M
 
 This integration requires direct access to the PostgreSQL database backing your ServiceDesk Plus MSP deployment.  Direct access to the database is required because the ServiceDesk Plus REST API does not allow tickets to be searched.  We recommend creating a read only PostgreSQL user to be used by this integration.
 
-> The integration currently only works against the MSP version of ServiceDesk Plus.  If you are interested in having the integration work with the non-MSP version of ServiceDesk please file an issue on GitHub.
+> The integration currently only works against the MSP version of ServiceDesk Plus.  If you are interested in having the integration work with the non-MSP version of ServiceDesk please [file an issue on GitHub](https://github.com/polarityio/servicedesk-plus/issues). 
 
 ## Installation Instructions
 
