@@ -2,19 +2,27 @@
 
 ![image](https://img.shields.io/badge/status-beta-yellow.svg)
 
-## Requirements
-
-For this integration to work you must be running ManageEngine ServiceDesk Plus MSP and be using PostgreSQL as your backend database.
-
-> The integration currently only works against the MSP version of ServiceDesk Plus.  If you are interested in having the integration work with the non-MSP version of ServiceDesk please file an issue on GitHub.
-
 ## Overview
 
 The ServiceDesk Plus MSP integration currently searches custom workorder fields to identify tickets related to IP addresses on your screen.  As an example, if you create a custom workorder field called "Source IP Address", this integration would be able to display tickets where the "Source IP Address" workorder field matches an IP address on your screen.
 
-This integration requires direct access to the PostgreSQL database backing your ServiceDesk Plus MSP deployment.  Direct access to the database is required because the ServiceDesk Plus REST API does not allow tickets to be searched.
 
-We recommend creating a read only PostgreSQL user to be used by this integration.
+| ![image](https://user-images.githubusercontent.com/306319/30572253-78ec783c-9cba-11e7-80b5-6a9f3fd8ca8f.png) |
+|---|
+|*ServiceDesk Plus MSP Example* |
+
+## Requirements
+
+For this integration to work you must be running ManageEngine ServiceDesk Plus MSP and be using PostgreSQL as your backend database.
+
+This integration requires direct access to the PostgreSQL database backing your ServiceDesk Plus MSP deployment.  Direct access to the database is required because the ServiceDesk Plus REST API does not allow tickets to be searched.  We recommend creating a read only PostgreSQL user to be used by this integration.
+
+> The integration currently only works against the MSP version of ServiceDesk Plus.  If you are interested in having the integration work with the non-MSP version of ServiceDesk please file an issue on GitHub.
+
+## Installation Instructions
+
+Installation instructions for integrations are provided on the [PolarityIO GitHub Page](https://polarityio.github.io/).
+
 
 ## Creating PostgreSQL Indexes
 
