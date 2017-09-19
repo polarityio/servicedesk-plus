@@ -22,6 +22,9 @@ dependency-reduced-pom.xml
 # Ignore local log files
 *.log
 
+# Ignore local config
+config.local.js
+
 # Ignore Generated HTML README Files
 README.html
 
