@@ -5,7 +5,7 @@ module.exports = {
      * @type String
      * @required
      */
-    name: "ServiceDesk Plus",
+    name: "ServiceDesk Plus MSP",
     /**
      * The acronym that appears in the notification window when information from this integration
      * is displayed.  Note that the acronym is included as part of each "tag" in the summary information
@@ -58,19 +58,34 @@ module.exports = {
             file: './templates/servicedesk-summary.hbs'
         }
     },
-    db: {
-        user: 'postgres',
-        host: 'localhost',
-        database: 'servicedesk',
-        password: '',
-        port: '65432'
-    },
     serviceDesk:{
+        db: {
+            user: 'postgres',
+            host: 'localhost',
+            database: 'servicedesk',
+            password: '',
+            port: '65432'
+        },
         /**
-         * List of custom work order fields you would like to search.  These fields must match exactly how your
-         * custom fields are called (Note: these fields ARE case sensitive).
+         * An array of custom workorderField objects.  Each object must contain the following properties:
+         *
+         * name: This is the case sensitive name of the workorder field as set in your servicedesk plus deployment
+         * shortName: This is the name used to represent the field in the summary tags of the notification window
+         * displayName: This is how you want the field to be displayed in the notification window.
          */
-        workorderFields: ['Source IP Address and Port','Destination IP address and Port']
+        workorderFields: [
+            {
+                name: 'Source IP Address and Port',
+                shortName: 'src',
+                displayName: 'Source IP'
+            },
+            {
+                name: 'Destination IP address and Port',
+                shortName: 'dst',
+                displayName: 'Destination IP'
+            }
+
+        ]
     },
     logging: {
         level: 'trace',  //trace, debug, info, warn, error, fatal
@@ -82,5 +97,15 @@ module.exports = {
      * @type Array
      * @optional
      */
-    "options": []
+    "options": [
+        {
+            "key": "url",
+            "name": "Server URL",
+            "description": "URL to your ServiceDesk Plus Server (include http/https and port is applicable)",
+            "default": "",
+            "type": "text",
+            "userCanEdit": true,
+            "adminOnly": false
+        }
+    ]
 };

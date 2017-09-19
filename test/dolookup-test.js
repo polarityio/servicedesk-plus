@@ -10,6 +10,7 @@ let expect = chai.expect;
 let nock = require('nock');
 let integration = require('../integration');
 
+// Note this was just a stub test for initial smoke testing
 describe('doLookup()', function () {
     before(function (done) {
 
@@ -33,13 +34,13 @@ describe('doLookup()', function () {
         integration.doLookup([{
             type: 'ip',
             types: ['ipv4', 'ip'],
-            value: '34.213.37.88',
+            value: '192.168.11.2',
             isIPv4: true
         },
             {
                 type: 'ip',
                 types: ['ipv4', 'ip'],
-                value: '65.123.23.132',
+                value: '192.168.11.3',
                 isIPv4: true
             }], {}, function(err, results){
             if(err){

@@ -1,1 +1,58 @@
-{{object-to-table block.data.details}}
+{{#each (limit enrichedDetails maxTicketsToDisplay) as |item|}}
+    <p>
+        <h1><a href="{{item.workorderUrl}}">#{{item.workorderid}} {{item.title}}</a> <i class="btb bt-external-link"></i></h1>
+    </p>
+    <p>
+        {{#if item.name}}
+            {{item.name}}
+        {{/if}}
+    </p>
+    <p>
+        {{#if item.description}}
+            {{item.description}}
+        {{else}}
+            <span class="small">No Description</span>
+        {{/if}}
+    </p>
+
+    <p>
+        Created on {{moment-time item.createdTimeNumeric}} by {{item.fullName}}
+    </p>
+
+    <p>
+        {{#if (gt item.resolvedTimeNumeric 0)}}
+            Resolved on {{moment-time item.resolvedTimeNumeric}}
+        {{else}}
+            <span class="small">Ticket Not Resolved</span>
+        {{/if}}
+    </p>
+
+    <table class="table table-striped table-sm">
+        <thead>
+        <th>
+            Field
+        </th>
+        <th>
+            Value
+        </th>
+        </thead>
+        <tbody>
+        {{#each item.workorderFields as |column|}}
+            <tr>
+                <td>
+                    {{column.displayName}}
+                </td>
+                <td>
+                    {{column.value}}
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+{{/each}}
+{{#if (gt additionalTicketCount 0)}}
+    <div class="additional-tickets">
+    {{additionalTicketCount}} additional {{if (eq additionalTicketCount 1) "ticket" "tickets"}}
+    </div>
+{{/if}}
+
