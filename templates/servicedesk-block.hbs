@@ -1,6 +1,7 @@
+<div class="details-block-container">
 {{#each (limit enrichedDetails maxTicketsToDisplay) as |item|}}
     <p>
-        <h1><a href="{{item.workorderUrl}}">#{{item.workorderid}} {{item.title}}</a> <i class="btb bt-external-link"></i></h1>
+    <h1>{{#if item.hasResponse}}<i class="fa fa-fw fa-envelope"></i> {{/if}}<a href="{{item.workorderUrl}}">#{{item.workorderid}} {{item.title}}</a> <i class="btb bt-external-link"></i></h1>
     </p>
     <p>
         {{#if item.name}}
@@ -17,6 +18,14 @@
 
     <p>
         Created on {{moment-time item.createdTimeNumeric}} by {{item.fullName}}
+    </p>
+
+    <p>
+        {{#if item.hasResponse}}
+            Has Response
+        {{else}}
+            <span class="small">No Response</span>
+        {{/if}}
     </p>
 
     <p>
@@ -55,4 +64,4 @@
     {{additionalTicketCount}} additional {{if (eq additionalTicketCount 1) "ticket" "tickets"}}
     </div>
 {{/if}}
-
+</div>
