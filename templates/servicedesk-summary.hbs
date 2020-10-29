@@ -1,24 +1,24 @@
 {{#if details.0.name}}
-    <span class="integration-summary-tag integration-background-color integration-border-color">
+    <span {{on "click" (optional this.scrollToIntegration)}} class="integration-summary-tag integration-background-color integration-border-color">
    <span class="acronym integration-text-bold-color">{{block.acronym}}</span>
     <span class="integration-text-color">{{details.0.name}}</span>
 </span>
 {{/if}}
 
-<span class="integration-summary-tag integration-background-color integration-border-color">
+<span {{on "click" (optional this.scrollToIntegration)}} class="integration-summary-tag integration-background-color integration-border-color">
    <span class="acronym integration-text-bold-color">{{block.acronym}}</span>
     <span class="integration-text-color">{{#if hasResponse}}<i class="fa fa-fw fa-envelope-o"></i> {{/if}} #{{details.0.workorderid}} {{shortTitle}}</span>
 </span>
 
 {{#each details.0.workorderFields as |column|}}
-    <span class="integration-summary-tag integration-background-color integration-border-color">
+    <span {{on "click" (optional this.scrollToIntegration)}} class="integration-summary-tag integration-background-color integration-border-color">
    <span class="acronym integration-text-bold-color">{{block.acronym}}</span>
     <span class="integration-text-color">{{column.shortName}}</span>
 </span>
 {{/each}}
 
 {{#if (gt additionalTicketCount 0)}}
-    <span class="integration-summary-tag integration-background-color integration-border-color">
+    <span {{on "click" (optional this.scrollToIntegration)}} class="integration-summary-tag integration-background-color integration-border-color">
    <span class="acronym integration-text-bold-color">{{block.acronym}}</span>
     <span class="integration-text-color">+{{additionalTicketCount}} {{if (eq additionalTicketCount 1) "ticket" "tickets"}}{{#if additionalTicketsHaveResponse}} <i class="fa fa-fw fa-envelope-o"></i>{{/if}}</span>
 </span>

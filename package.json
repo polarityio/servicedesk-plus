@@ -1,7 +1,7 @@
 {
   "main": "./integration.js",
   "name": "servicedesk-plus",
-  "version": "1.1.0-beta",
+  "version": "3.0.0-beta",
   "private": true,
   "dependencies": {
     "pg": "^7.1"
